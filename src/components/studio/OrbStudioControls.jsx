@@ -1,6 +1,6 @@
 import React from "react";
 import { ORB_STATES } from "../orb/constants/orbConfig";
-import { Mic, MicOff, Play, Sparkles, Sliders, Activity, Radio, Cpu, RotateCcw, Brain } from "lucide-react";
+import { Mic, MicOff, Play, Sparkles, Sliders, Activity, Radio, Cpu, RotateCcw, Brain, AlertOctagon } from "lucide-react";
 
 export default function OrbStudioControls({
   state,
@@ -98,6 +98,15 @@ export default function OrbStudioControls({
           >
             <Brain size={13} />
             <span>Neural Ingest</span>
+          </button>
+          <button
+            onClick={() => onRunScenario("faultRecovery")}
+            disabled={isScenarioRunning}
+            className="scenario-btn"
+            style={{ color: "#fb7185" }}
+          >
+            <AlertOctagon size={13} />
+            <span>Critical Fault</span>
           </button>
         </div>
       </div>

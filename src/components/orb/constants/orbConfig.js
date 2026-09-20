@@ -264,7 +264,35 @@ export const ORB_STATES = {
     energyTurbulence: 0.05,
     audioMultiplier: 0.05,
   },
+
+  error: {
+    id: "error",
+    name: "ERROR",
+    status: "System fault anomaly",
+    subtitle: "Critical fault detected. Neural matrix destabilized and attempting recovery.",
+    badge: "FAULT",
+    color: "#e11d48",       // Glitch Crimson
+    color2: "#881337",      // Deep alert red-violet
+    accentColor: "#fb923c", // Warning orange highlights
+    coreColor: "#4c0519",   // Deep crimson-violet core
+    distortion: 0.65,       // Erratic high turbulence
+    frequency: 6.8,         // Rapid glitch displacement ripples
+    speed: 1.7,
+    flowSpeed: 2.2,
+    glow: 2.2,
+    roughness: 0.45,
+    particleSpeed: 1.8,
+    particleSize: 0.038,
+    ringSpeed: 1.25,
+    ringOpacity: 0.7,
+    energyTurbulence: 1.6,
+    audioMultiplier: 0.9,
+  },
 };
+
+// Synonym alias for convenience
+ORB_STATES.fault = ORB_STATES.error;
+
 
 export function hexToVec3(hex) {
   const c = new THREE.Color(hex);

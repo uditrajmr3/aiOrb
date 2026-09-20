@@ -30,6 +30,7 @@ import {
   Settings,
   Flame,
   CornerDownLeft,
+  AlertOctagon,
 } from "lucide-react";
 
 export default function MiaDashboard({
@@ -85,10 +86,62 @@ export default function MiaDashboard({
     }
   }, [messages]);
 
+  // Fault simulation sequence
+  const handleTriggerFault = () => {
+    if (isProcessing) return;
+    setIsProcessing(true);
+    setOrbState("error");
+    setActivity(1.0);
+    setTaskDescription("CRITICAL FAULT: Matrix destabilized — high turbulence anomaly!");
+
+    setTimeout(() => {
+      setOrbState("thinking");
+      setActivity(0.85);
+      setTaskDescription("Isolating partition & synthesizing error boundary...");
+
+      setTimeout(() => {
+        setOrbState("syncing");
+        setActivity(0.7);
+        setTaskDescription("Re-synchronizing distributed cluster state...");
+
+        setTimeout(() => {
+          setOrbState("speaking");
+          setActivity(0.5);
+          setAudioLevel(0.65);
+          setTaskDescription("Matrix healed. 100% integrity restored.");
+
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: Date.now(),
+              sender: "mia",
+              text: "Critical fault anomaly successfully contained: corrupt memory vectors isolated and neural matrix re-synchronized from cluster replica. All systems 100% nominal.",
+              time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+            },
+          ]);
+
+          setTimeout(() => {
+            setOrbState("idle");
+            setActivity(0.25);
+            setAudioLevel(0);
+            setTaskDescription("Ask anything. Build everything.");
+            setIsProcessing(false);
+          }, 3200);
+        }, 2200);
+      }, 2400);
+    }, 2800);
+  };
+
   // Handle autonomous command dispatch
   const handleSendCommand = (textToSend) => {
     const text = textToSend || inputVal.trim();
     if (!text || isProcessing) return;
+
+    if (text.toLowerCase().includes("fault") || text.toLowerCase().includes("crash") || text.toLowerCase().includes("simulate error")) {
+      setInputVal("");
+      handleTriggerFault();
+      return;
+    }
 
     // Add user message
     const userMsg = {
@@ -434,6 +487,13 @@ export default function MiaDashboard({
                 className="chip-btn"
               >
                 Status
+              </button>
+              <button
+                onClick={handleTriggerFault}
+                className="chip-btn"
+                style={{ color: "#fb7185", borderColor: "rgba(225,29,72,0.3)" }}
+              >
+                Simulate fault
               </button>
             </div>
 
@@ -843,10 +903,26 @@ export default function MiaDashboard({
                 <AlertTriangle size={16} className="card-title-icon text-amber" />
                 <h3 className="card-title">ALERTS & ADVICE</h3>
               </div>
-              <span className="badge-pill badge-amber">2 Attention</span>
+              <span className="badge-pill badge-amber">3 Attention</span>
             </div>
 
             <div className="alerts-list">
+              <div className="alert-item error" style={{ borderColor: "rgba(225,29,72,0.25)" }}>
+                <div className="alert-icon-wrap" style={{ color: "#e11d48", background: "rgba(225,29,72,0.15)" }}>
+                  <AlertOctagon size={15} />
+                </div>
+                <div className="alert-content">
+                  <div className="alert-title" style={{ color: "#fb7185" }}>Cluster Node Fault Drill</div>
+                  <div className="alert-desc">Simulate erratic matrix recovery sequence</div>
+                </div>
+                <button
+                  onClick={handleTriggerFault}
+                  className="alert-btn"
+                  style={{ color: "#fb7185", borderColor: "rgba(225,29,72,0.4)" }}
+                >
+                  Trigger Fault
+                </button>
+              </div>
               <div className="alert-item warn">
                 <div className="alert-icon-wrap">
                   <AlertTriangle size={15} />

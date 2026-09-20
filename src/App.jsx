@@ -152,6 +152,35 @@ export default function App() {
           }, 2400);
         }, 2800);
       }, 1600);
+    } else if (scenario === "faultRecovery") {
+      setOrbState("error");
+      setActivity(1.0);
+      setTaskDescription("CRITICAL FAULT: Matrix destabilized — high turbulence anomaly detected!");
+
+      setTimeout(() => {
+        setOrbState("thinking");
+        setActivity(0.85);
+        setTaskDescription("Synthesizing error boundary & isolating corrupted memory vectors...");
+
+        setTimeout(() => {
+          setOrbState("syncing");
+          setActivity(0.7);
+          setTaskDescription("Restoring neural checkpoint from distributed cluster peers...");
+
+          setTimeout(() => {
+            setOrbState("speaking");
+            setActivity(0.5);
+            setTaskDescription("Fault mitigated. Neural integrity restored to 100%.");
+
+            setTimeout(() => {
+              setOrbState("idle");
+              setActivity(0.25);
+              setTaskDescription("Ready when you are.");
+              setIsScenarioRunning(false);
+            }, 3000);
+          }, 2400);
+        }, 2600);
+      }, 3000);
     }
   };
 
