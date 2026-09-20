@@ -123,6 +123,35 @@ export default function App() {
           }, 2200);
         }, 2000);
       }, 2500);
+    } else if (scenario === "neuralIngest") {
+      setOrbState("listening");
+      setActivity(0.6);
+      setTaskDescription("Ingesting new repository architecture & user preferences...");
+
+      setTimeout(() => {
+        setOrbState("learning");
+        setActivity(0.85);
+        setTaskDescription("Synthesizing neural weights & cross-indexing semantic vectors...");
+
+        setTimeout(() => {
+          setOrbState("syncing");
+          setActivity(0.95);
+          setTaskDescription("Broadcasting updated memory embeddings across swarm nodes...");
+
+          setTimeout(() => {
+            setOrbState("speaking");
+            setActivity(0.5);
+            setTaskDescription("Knowledge assimilated. Mia is updated and ready.");
+
+            setTimeout(() => {
+              setOrbState("idle");
+              setActivity(0.25);
+              setTaskDescription("Ready when you are.");
+              setIsScenarioRunning(false);
+            }, 3000);
+          }, 2400);
+        }, 2800);
+      }, 1600);
     }
   };
 

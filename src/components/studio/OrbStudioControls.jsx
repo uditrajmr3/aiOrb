@@ -1,6 +1,6 @@
 import React from "react";
 import { ORB_STATES } from "../orb/constants/orbConfig";
-import { Mic, MicOff, Play, Sparkles, Sliders, Activity, Radio, Cpu, RotateCcw } from "lucide-react";
+import { Mic, MicOff, Play, Sparkles, Sliders, Activity, Radio, Cpu, RotateCcw, Brain } from "lucide-react";
 
 export default function OrbStudioControls({
   state,
@@ -90,6 +90,14 @@ export default function OrbStudioControls({
           >
             <Cpu size={13} />
             <span>Anomaly Pulse</span>
+          </button>
+          <button
+            onClick={() => onRunScenario("neuralIngest")}
+            disabled={isScenarioRunning}
+            className="scenario-btn"
+          >
+            <Brain size={13} />
+            <span>Neural Ingest</span>
           </button>
         </div>
       </div>

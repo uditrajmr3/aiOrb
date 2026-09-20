@@ -17,6 +17,7 @@ export class MiaOrbEngine {
       showRings: true,
       showParticles: true,
       interactive: true,
+      cameraDistance: 4.6,
       ...options,
     };
 
@@ -27,6 +28,7 @@ export class MiaOrbEngine {
     this.showRings = this.options.showRings;
     this.showParticles = this.options.showParticles;
     this.interactive = this.options.interactive;
+    this.cameraDistance = Number(this.options.cameraDistance) || 4.6;
     this.hovered = false;
 
     this.pointerPos = new THREE.Vector3(0, 0, 0);
@@ -60,7 +62,7 @@ export class MiaOrbEngine {
     // 1. Scene & Camera
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(44, width / height, 0.1, 100);
-    this.camera.position.set(0, 0, 4.6);
+    this.camera.position.set(0, 0, this.cameraDistance);
 
     // 2. Renderer
     this.renderer = new THREE.WebGLRenderer({
@@ -319,6 +321,16 @@ export class MiaOrbEngine {
 
   setInteractive(interactive) {
     this.interactive = !!interactive;
+  }
+
+  setCameraDistance(distance) {
+    const d = Number(distance);
+    if (!isFinite(d) || d <= 0) return;
+    this.cameraDistance = d;
+    if (this.camera) {
+      this.camera.position.z = d;
+      this.camera.updateProjectionMatrix();
+    }
   }
 
   emitToFlutter(type, data = {}) {

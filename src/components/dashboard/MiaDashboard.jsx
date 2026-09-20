@@ -536,8 +536,8 @@ export default function MiaDashboard({
                 </button>
 
                 <button
-                  onClick={() => setOrbState("waiting")}
-                  className={`hud-node hud-node-bl ${orbState === "waiting" ? "active" : ""}`}
+                  onClick={() => setOrbState("learning")}
+                  className={`hud-node hud-node-bl ${orbState === "learning" ? "active" : ""}`}
                 >
                   <div className="hud-node-icon">
                     <Database size={15} />

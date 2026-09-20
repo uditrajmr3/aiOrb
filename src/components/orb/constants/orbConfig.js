@@ -121,6 +121,78 @@ export const ORB_STATES = {
     audioMultiplier: 1.2,
   },
 
+  learning: {
+    id: "learning",
+    name: "LEARNING",
+    status: "Neural assimilation",
+    subtitle: "Absorbing contextual data, indexing memory, and evolving neural patterns.",
+    badge: "LEARNING",
+    color: "#10b981",       // Cyber Emerald
+    color2: "#06b6d4",       // Electric Cyan / Teal
+    accentColor: "#a7f3d0", // Crystalline Mint Highlight
+    coreColor: "#047857",   // Deep Emerald Core
+    distortion: 0.36,
+    frequency: 4.2,
+    speed: 0.85,
+    flowSpeed: 1.15,
+    glow: 1.7,
+    roughness: 0.22,
+    particleSpeed: 0.65,
+    particleSize: 0.03,
+    ringSpeed: 0.5,
+    ringOpacity: 0.45,
+    energyTurbulence: 0.75,
+    audioMultiplier: 0.7,
+  },
+
+  syncing: {
+    id: "syncing",
+    name: "SYNCING",
+    status: "Swarm telemetry sync",
+    subtitle: "Synchronizing state, memory vector stores, and peer nodes.",
+    badge: "SYNCING",
+    color: "#06b6d4",       // Vivid Teal Cyan
+    color2: "#f59e0b",       // Solar Amber Flow
+    accentColor: "#cffafe", // Ice Cyan Highlight
+    coreColor: "#0891b2",   // Deep Cyan Core
+    distortion: 0.3,
+    frequency: 3.8,
+    speed: 0.95,
+    flowSpeed: 1.25,
+    glow: 1.65,
+    roughness: 0.22,
+    particleSpeed: 0.75,
+    particleSize: 0.028,
+    ringSpeed: 0.65,
+    ringOpacity: 0.48,
+    energyTurbulence: 0.8,
+    audioMultiplier: 0.5,
+  },
+
+  sleeping: {
+    id: "sleeping",
+    name: "SLEEPING",
+    status: "Dormant rest cycle",
+    subtitle: "Deep neural regeneration. Soft rhythmic vital pulse.",
+    badge: "RESTING",
+    color: "#6366f1",       // Deep Indigo
+    color2: "#312e81",       // Midnight Violet
+    accentColor: "#c7d2fe", // Soft Lavender Highlight
+    coreColor: "#1e1b4b",   // Cosmic Obsidian Core
+    distortion: 0.08,
+    frequency: 1.4,
+    speed: 0.12,
+    flowSpeed: 0.15,
+    glow: 0.65,
+    roughness: 0.35,
+    particleSpeed: 0.06,
+    particleSize: 0.015,
+    ringSpeed: 0.05,
+    ringOpacity: 0.14,
+    energyTurbulence: 0.1,
+    audioMultiplier: 0.1,
+  },
+
   waiting: {
     id: "waiting",
     name: "WAITING",
